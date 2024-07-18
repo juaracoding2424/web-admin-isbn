@@ -179,25 +179,6 @@
 </body>
 <!--end::Body-->
 <script>
-	var generateISBN13 = function() {
-		// Generate the first 9 digits of the ISBN randomly.
-		var digits = Array(9).fill(0).map(function () {
-			return Math.floor(Math.random() * 10);
-		});
-
-		// Calculate the checksum for the ISBN.
-		var checksum = 0;
-		for (var i = 0; i < 9; i++) {
-			checksum += digits[i] * (10 - i);
-		}
-		checksum = 10 - (checksum % 10);
-
-		// Add the checksum to the end of the digits array.
-		digits.push(checksum);
-
-		// Return the ISBN as a string.
-		return digits.join("");
-	};
 	var extractColumn = function(arr, column) {
 		return arr.map(x => x[column]);
 	}
@@ -249,18 +230,7 @@
 	var randomDate = function(start, end) {
 		return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleString();
 	}
-	var rolePengarang = [
-		'penulis', 'penyunting', 'penyusun', 'ilustrator', 'alih bahasa', 'editor'
-	]
-	var populateKepengarangan = function(){
-		var jmlPengarang = getRandom(1,5);
-		var pengarang = '';
-		for( var i = 0; i < jmlPengarang; i++){
-			const name = RandomName();
-			pengarang += rolePengarang[getRandom(0,6)] + ", " + name + "; ";
-		}
-		return pengarang.slice(0, -2);
-	}
+
 	var populateDataSet = function(numb){
 		var dataSetPop = [];
 		for( var i = 1; i<=numb; i++ ){
