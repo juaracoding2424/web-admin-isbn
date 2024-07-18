@@ -48,7 +48,7 @@
 										<!--begin::Card widget 5-->
 										<div class="card bg-gray-100 overflow-hidden">
 											<!--begin::Header-->
-											<a class="card-body d-flex justify-content-between flex-column px-0 pb-0" href="isbn_baru">
+											<a class="card-body d-flex justify-content-between flex-column px-0 pb-0" href="isbn_baru.php">
 												<!--begin::Title-->
 												<div class="mb-10 px-9">
 													<!--begin::Info-->
@@ -73,7 +73,7 @@
 										<!--begin::Card widget 9-->
 										<div class="card bg-danger overflow-hidden">
 											<!--begin::Card body-->
-											<a class="card-body d-flex justify-content-between flex-column px-0 pb-0" href="isbn_masalah.php">
+											<a class="card-body d-flex justify-content-between flex-column px-0 pb-0" href="isbn_bermasalah.php">
 												<!--begin::Statistics-->
 												<div class="mb-10 px-9">
 													<!--begin::Statistics-->
