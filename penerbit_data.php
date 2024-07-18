@@ -60,7 +60,7 @@
 								</li>
 								<!--end::Item-->
 								<!--begin::Item-->
-								<li class="breadcrumb-item text-muted">Data ISBN</li>
+								<li class="breadcrumb-item text-muted">Monitoring Penerbit</li>
 								<!--end::Item-->
 								<!--begin::Item-->
 								<li class="breadcrumb-item">
@@ -113,16 +113,11 @@
 								<thead>
 									<tr class="text-start text-gray-500 fw-bold fs-8 text-uppercase gs-0">
 										<th class="text-start min-w-60px pe-2">ID</th>
-										<th class="min-w-100px">ISBN</th>
-										<th class="min-w-200px">Judul</th>
-										<th class="min-w-200px">Kepengarangan</th>
-										<th class="min-w-200px">Bulan/Tahun Terbit</th>
-										<th class="min-w-200px">Status Penerbitan</th>
-										<th class="min-w-200px">Tanggal Permohonan</th>
+										<th class="min-w-200px">Nama Penerbit</th>
+										<th class="min-w-200px">Email</th>
 										<th class="min-w-200px">Tanggal Verifikasi</th>
-										<th class="text-inline min-w-150px">Actions</th>
-										<th class="min-w-200px">Penyerahan Perpusnas</th>
-										<th class="min-w-200px">Penyerahan Provinsi</th>
+										<th class="min-w-200px">Status</th>
+										<th class="min-w-2000px">Berkas</th>
 										
 									</tr>
 								</thead>
@@ -206,109 +201,25 @@
 </body>
 <!--end::Body-->
 <script>
-	var generateISBN13 = function() {
-		// Generate the first 9 digits of the ISBN randomly.
-		var digits = Array(9).fill(0).map(function () {
-			return Math.floor(Math.random() * 10);
-		});
-
-		// Calculate the checksum for the ISBN.
-		var checksum = 0;
-		for (var i = 0; i < 9; i++) {
-			checksum += digits[i] * (10 - i);
-		}
-		checksum = 10 - (checksum % 10);
-
-		// Add the checksum to the end of the digits array.
-		digits.push(checksum);
-
-		// Return the ISBN as a string.
-		return digits.join("");
-	};
 	var getRandom = function (min, max) {
 		return Math.floor(Math.random() * (max - min) + min);
 	};
 	var randomDate = function(start, end) {
 		return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleString();
 	}
-	var images = [
-		'https://m.media-amazon.com/images/I/81jRqrKKObL._AC_UL800_FMwebp_QL65_.jpg',
-		'https://m.media-amazon.com/images/I/81JgX8VgZiL._AC_UL800_FMwebp_QL65_.jpg',
-		'https://m.media-amazon.com/images/I/71CBWHK035L._AC_UL800_FMwebp_QL65_.jpg',
-		'https://m.media-amazon.com/images/I/91pXKpUfGgL._AC_UL800_FMwebp_QL65_.jpg',
-		'https://m.media-amazon.com/images/I/41On-kU2qfL._AC_SF480,480_.jpg',
-		'https://m.media-amazon.com/images/I/51J+Tc3E1eL._AC_SF480,480_.jpg',
-		'https://m.media-amazon.com/images/I/51XBtKdStML._AC_SF480,480_.jpg',
-		'https://m.media-amazon.com/images/I/41CSLTOp7LL._AC_SF480,480_.jpg',
-		'https://m.media-amazon.com/images/I/51l-BqdoMsL._UX300undefined_.jpg',
-		'https://m.media-amazon.com/images/I/510GvscKODL._AC_SF480,480_.jpg',
-		'https://m.media-amazon.com/images/I/41PUsvw0kuL._AC_SF480,480_.jpg'
-	];
-	var cetakBarcode = function(){
-		Swal.fire({
-                    text: "Kami sudah mengirimkan barcode melalui email Anda!",
-                    icon: "success",
-                    buttonsStyling: !1,
-                    confirmButtonText: "Ok, got it!",
-                    customClass: {
-                    	confirmButton: "btn fw-bold btn-primary"
-                        }
-                })
-	};
-	var cetakKDT = function(){
-		Swal.fire({
-                    text: "Kami sudah mengirimkan KDT melalui email Anda!",
-                    icon: "success",
-                    buttonsStyling: !1,
-                    confirmButtonText: "Ok, got it!",
-                    customClass: {
-                    	confirmButton: "btn fw-bold btn-primary"
-                        }
-                })
-	}
-	var randomPenyerahan = function(){
-		const penyerahan = getRandom(0,2);
-		if(penyerahan == 0){
-			return '<a class="badge badge-danger wrap" href="https://edeposit.perpusnas.go.id/login" target="_blank">Serahkan ke Perpusnas</a>';
-		} else {
-			return randomDate(new Date(2024, 5, 1), new Date())
-		}
-	}
-	var randomPenyerahanProv = function(){
-		const penyerahan = getRandom(0,2);
-		if(penyerahan == 0){
-			return '<a class="badge badge-danger wrap" href="https://edeposit.perpusnas.go.id/login" target="_blank">Serahkan ke Provinsi</a>';
-		} else {
-			return randomDate(new Date(2024, 5, 1), new Date())
-		}
-	}
-	var rolePengarang = [
-		'penulis', 'penyunting', 'penyusun', 'ilustrator', 'alih bahasa', 'editor'
-	]
-	var populateKepengarangan = function(){
-		var jmlPengarang = getRandom(1,7);
-		var pengarang = '';
-		for( var i = 0; i < jmlPengarang; i++){
-			const name = RandomName();
-			pengarang += rolePengarang[getRandom(0,6)] + ", " + name + "; ";
-		}
-		return pengarang.slice(0, -2);
-	}
+	
 	var populateDataSet = function(numb){
 		var dataSetPop = [];
 		for( var i = 1; i<=numb; i++ ){
+            let name = RandomName();
+            let email = name.split(" ").join("") + '@mail.com';
 			dataSetPop.push([
 				i.toString(),
-				generateISBN13(),
-				'<div class="d-flex align-items-center"><img src='+images[getRandom(0,11)]+' class=" symbol h-50px"></img><span class="ms-5"> ' + RandomTitle() + '</span></div>',
-				populateKepengarangan(),
+				name,
+				email,
 				Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(1,12).toString())) + " " + getRandom(2022,2024).toString(),
-				'<select class="form-select fs-7 select-costum" id="changeStatus_'+(i-1)+'" onChange="changeStatus('+(i-1)+')"><option value"">--Pilih status--</option><option value="belum terbit">Belum Terbit</option><option value="terbit">Sudah Terbit</option><option value="batal">Batal Terbit</option></select>', 
-				randomDate(new Date(2020, 0, 1), new Date(2022, 12, 31)),
-				randomDate(new Date(2023, 0, 1), new Date(2024, 2, 20)),
-				'<a class="badge badge-info h-30px m-1" onclick="cetakBarcode()">Barcode</a><a class="badge badge-primary h-30px m-1" onClick="cetakKDT()">KDT</a>',
-				randomPenyerahan(),
-				randomPenyerahanProv(),
+				'<select class="form-select fs-7 select-costum" id="changeStatus_'+(i-1)+'" onChange="changeStatus('+(i-1)+')"><option value"">--Pilih status--</option><option value="aktif">Aktif</option><option value="blokir">Disable</option><option value="blokir">Blokir</option></select>', 
+				'<a class="badge badge-info h-30px m-1" onclick="lihatPernyataan()">Surat Pernyataan</a><a class="badge badge-primary h-30px m-1" onClick="lihatSiup()">SIUP</a>'
 			]);
 		}
 		return dataSetPop;
@@ -425,7 +336,7 @@
             }));
 	var exportButtons = () => {
 		var myInt = Number(new Date()).toString();
-        const documentTitle = 'ISBN Report ' + myInt;
+        const documentTitle = 'Penerbit Report ' + myInt;
         var buttons = new $.fn.dataTable.Buttons(t, {
             buttons: [
                 {

@@ -45,7 +45,7 @@
 								</li>
 								<!--end::Item-->
 								<!--begin::Item-->
-								<li class="breadcrumb-item text-muted">Data ISBN</li>
+								<li class="breadcrumb-item text-muted">Monitoring Penerbit</li>
 								<!--end::Item-->
 								<!--begin::Item-->
 								<li class="breadcrumb-item">
@@ -91,9 +91,9 @@
 								<thead>
 									<tr class="text-start text-gray-500 fw-bold fs-8 text-uppercase gs-0">
 										<th class="text-start min-w-60px pe-2">ID</th>
-										<th class="min-w-200px">Judul</th>
-										<th class="min-w-200px">Kepengarangan</th>
-										<th class="min-w-200px">Bulan/Tahun Terbit</th>
+										<th class="min-w-200px">Nama Penerbit</th>
+										<th class="min-w-200px">Email</th>
+                                        <th class="min-w-200px">Berkas</th>
 										<th class="min-w-200px">Tanggal Permohonan</th>
 										<th class="min-w-200px bg-light-danger">Masalah</th>
 										<th class="text-inline min-w-150px">Actions</th>										
@@ -182,25 +182,6 @@
 </body>
 <!--end::Body-->
 <script>
-	var generateISBN13 = function() {
-		// Generate the first 9 digits of the ISBN randomly.
-		var digits = Array(9).fill(0).map(function () {
-			return Math.floor(Math.random() * 10);
-		});
-
-		// Calculate the checksum for the ISBN.
-		var checksum = 0;
-		for (var i = 0; i < 9; i++) {
-			checksum += digits[i] * (10 - i);
-		}
-		checksum = 10 - (checksum % 10);
-
-		// Add the checksum to the end of the digits array.
-		digits.push(checksum);
-
-		// Return the ISBN as a string.
-		return digits.join("");
-	};
 	var getRandom = function (min, max) {
 		return Math.floor(Math.random() * (max - min) + min);
 	};
@@ -210,29 +191,13 @@
 
 	var randomMasalah = function(){
 		const masalah = [
-			"Kriteria Tidak Terpenuhi",
-			"Penerbit atau pengarang tidak memenuhi kriteria yang ditetapkan oleh Perpustakaan Nasional RI",
-			"Kesalahan informasi pada halaman judul",
-			"Kesalahan dalam mengisi formulir permohonan, informasi tidak lengkap atau tidak akurat",
-			"Pelanggaran Hak Cipta",
-			"Buku melanggar hak cipta atau melanggar hukum dalam hal konten atau desain",
-			"Buku sudah pernah dimintakan ISBN sebelumnya",
-			"Buku tidak memenuhi standar",
-			"Buku tidak memenuhi standar kualitas yang ditetapkan oleh Perpustakaan Nasional RI"
+			"Dokumen legalitas tidak lengkap atau tidak valid", 
+            "Surat Pernyataan tidak diisi dengan benar", 
+            "Informasi pada formulir registrasi tidak konsisten", 
+            "Keterlambatan dalam menyerahkan dokumen yang diperlukan", 
+            "Kesalahan dalam memahami dan mengikuti prosedur registrasi"
 		];
-		return masalah[getRandom(0,9)];
-	}
-	var rolePengarang = [
-		'penulis', 'penyunting', 'penyusun', 'ilustrator', 'alih bahasa', 'editor'
-	]
-	var populateKepengarangan = function(){
-		var jmlPengarang = getRandom(1,5);
-		var pengarang = '';
-		for( var i = 0; i < jmlPengarang; i++){
-			const name = RandomName();
-			pengarang += rolePengarang[getRandom(0,6)] + ", " + name + "; ";
-		}
-		return pengarang.slice(0, -2);
+		return masalah[getRandom(0,5)];
 	}
 	var extractColumn = function(arr, column) {
 		return arr.map(x => x[column]);
@@ -240,12 +205,14 @@
 	var populateDataSet = function(numb){
 		var dataSetPop = [];
 		for( var i = 1; i<=numb; i++ ){
+            let name = RandomName();
+            let email = name.split(" ").join("") + '@mail.com';
 			dataSetPop.push([
 				i.toString(),
-				RandomTitle(),
-				populateKepengarangan(),
-				Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(1,12).toString())) + " " + getRandom(2022,2024).toString(),
-				randomDate(new Date(2023, 0, 1), new Date(2024, 2, 20)),
+				name,
+				email,
+                '<a class="badge badge-primary h-30px m-1" onClick="lihatPernyataan('+(i-1)+')">Surat Pernyataan</a> <a class="badge badge-info h-30px m-1" onClick="lihatSiup('+(i-1)+')">SIUP</a>',
+				randomDate(new Date(2024, 0, 1), new Date(2024, 12, 31)),
 				randomMasalah(),
 				'<a class="badge badge-primary h-30px m-1" onClick="lihatPermohonan('+(i-1)+')">Lihat</a>',
 			]);

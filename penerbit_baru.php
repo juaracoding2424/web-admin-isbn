@@ -41,7 +41,7 @@
 								</li>
 								<!--end::Item-->
 								<!--begin::Item-->
-								<li class="breadcrumb-item text-muted">Data ISBN</li>
+								<li class="breadcrumb-item text-muted">Monitoring Penerbit</li>
 								<!--end::Item-->
 								<!--begin::Item-->
 								<li class="breadcrumb-item">
@@ -89,6 +89,7 @@
 										<th class="text-start min-w-60px pe-2">ID</th>
 										<th class="min-w-200px">Nama Penerbit</th>
 										<th class="min-w-200px">Email</th>
+                                        <th class="min-w-200px">Berkas</th>
 										<th class="min-w-175px">Tanggal Permohonan</th>
 										<th class="text-inline min-w-250px">Actions</th>										
 									</tr>
@@ -244,6 +245,7 @@
 				i.toString(),
 				name,
                 email,
+                '<a class="badge badge-primary h-30px m-1" onClick="lihatPernyataan('+(i-1)+')">Surat Pernyataan</a> <a class="badge badge-info h-30px m-1" onClick="lihatSiup('+(i-1)+')">SIUP</a>',
 				randomDate(new Date(2024, 5, 1), new Date()),
 				'<a class="badge badge-info h-30px m-1" href="tambah_isbn.php">Verifikasi</a>',
 			]);
