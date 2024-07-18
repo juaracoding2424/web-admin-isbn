@@ -112,6 +112,33 @@
                 </div>
                 <!--end:Menu sub-->
             </div>
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion active">
+                <!--begin:Menu link-->
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <i class="ki-outline ki-user fs-2"></i>
+                    </span>
+                    <span class="menu-title">Akun</span>
+                    <span class="menu-arrow"></span>
+                </span>
+                <!--end:Menu link-->
+                <!--begin:Menu sub-->
+                <div class="menu-sub menu-sub-accordion">
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                        <a class="menu-link" href="akun.php">
+                            <span class="menu-icon"><i class="fa-solid fa-address-book fs-2"></i></span> Akun
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="role.php">
+                            <span class="menu-icon"><i class="fa-solid fa-key fs-2"></i></span> Role
+                        </a>
+                    </div>
+                    <!--end:Menu item-->
+                </div>
+                <!--end:Menu sub-->
+            </div>
         </div>
         <!--end::Secondary menu-->
     </div>
