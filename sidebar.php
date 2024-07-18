@@ -84,7 +84,7 @@
                 <!--begin:Menu link-->
                 <span class="menu-link">
                     <span class="menu-icon">
-                        <i class="ki-outline ki-address-book fs-2"></i>
+                        <i class="ki-outline ki-setting-2 fs-2"></i>
                     </span>
                     <span class="menu-title">Monitoring Web</span>
                     <span class="menu-arrow"></span>
@@ -94,19 +94,18 @@
                 <div class="menu-sub menu-sub-accordion">
                     <!--begin:Menu item-->
                     <div class="menu-item">
-                        <a class="menu-link" href="isbn_baru.php">
+                        <a class="menu-link" href="web_faq.php">
                             <span class="menu-icon"><i class="ki-outline ki-plus-circle fs-2"></i></span> FAQ
                         </a>
                     </div>
                     <div class="menu-item">
-                        <a class="menu-link" href="isbn_bermasalah.php">
+                        <a class="menu-link" href="web_surat.php">
                             <span class="menu-icon"><i class="ki-outline ki-file-deleted fs-2"></i></span> Surat
                         </a>
                     </div>
                     <div class="menu-item">
-                        <a class="menu-link" href="isbn_data.php">
-                            <span class="menu-icon"><i class="ki-outline  ki-questionnaire-tablet fs-2"></i></span> Data
-                            ISBN
+                        <a class="menu-link" href="web_email.php">
+                            <span class="menu-icon"><i class="ki-outline  ki-questionnaire-tablet fs-2"></i></span> Template Email
                         </a>
                     </div>
                     <!--end:Menu item-->
