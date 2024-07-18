@@ -72,7 +72,7 @@
 								<div class="d-flex align-items-center position-relative my-1">
 									<i class="ki-outline ki-magnifier fs-3 position-absolute ms-4"></i>
 									<input type="text" data-example-filter="search" class="form-control form-control-solid w-400px ps-12" 
-									placeholder="Search Judul, ISBN, Pengarang, etc" />
+									placeholder="Search Nama, Email, etc" />
 								</div>
 												<!--end::Search-->
 							</div>

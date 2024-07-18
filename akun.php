@@ -182,48 +182,6 @@
 	var extractColumn = function(arr, column) {
 		return arr.map(x => x[column]);
 	}
-	var batalkanPermohonan = function(i){
-		let arrNomor = extractColumn(dataSet, 0);
-		let position = arrNomor.indexOf((i+1).toString());
-		r = dataSet[position][1];
-		Swal.fire({
-                    html: "Anda yakin akan membatalkan permohonan ISBN, dengan <b>judul</b>: <span class='badge badge-info'> "+r+" </span>?",
-					icon: "warning",
-                    showCancelButton: !0,
-                    buttonsStyling: !1,
-                    confirmButtonText: "Ya, batalkan!",
-                    cancelButtonText: "Tidak",
-                    customClass: {
-                        confirmButton: "btn fw-bold btn-danger",
-                        cancelButton: "btn fw-bold btn-active-light-primary"
-                    }
-            }).then(function(e) {
-						if(e.isConfirmed == true) {
-							Swal.fire({
-								html: "Anda membatalkan permohonan ISBN, dengan <b>judul</b>: <span class='badge badge-info'>" + r + "</span>!.",
-								icon: "success",
-								buttonsStyling: !1,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn fw-bold btn-primary"
-								}
-							})
-							dataSet.splice(position,1);
-							t.destroy();
-							loadDataTable();
-						} else {
-							Swal.fire({
-								html: "<span class='badge badge-info'>" + r + "</span> tidak jadi dibatalkan.",
-								icon: "error",
-								buttonsStyling: !1,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn fw-bold btn-primary"
-								}
-                        	});
-						}
-            });
-	}
 	var getRandom = function (min, max) {
 		return Math.floor(Math.random() * (max - min) + min);
 	};
