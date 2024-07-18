@@ -405,7 +405,7 @@
 								<div class="card-header pt-7">
 									<!--begin::Title-->
 									<h3 class="card-title align-items-start flex-column">
-										<span class="card-label fw-bold text-gray-900" id="title_chart_penerbit">Dtata Statistik Penerbit Tahun 2024</span>
+										<span class="card-label fw-bold text-gray-900" id="title_chart_penerbit">Data Statistik Penerbit Tahun 2024</span>
 										<span class="text-gray-500 pt-2 fw-semibold fs-6">Statistik bulanan</span>
 									</h3>
 									<!--end::Title-->
