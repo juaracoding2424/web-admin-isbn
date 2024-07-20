@@ -80,7 +80,7 @@
                             <!--end::Card title-->
                             <!--begin::Card toolbar-->
                             <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal_surat"
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal_berita"
                                     class="btn btn-primary fw-bold fs-8 fs-lg-base" onclick="newData()">Buat Berita / Pengumuman</a>
                             </div>
                             <!--end::Card toolbar-->
@@ -161,7 +161,7 @@
 </div>
 <!--end::Scrolltop-->
 <!--begin::Modal - Buat Surat-->
-<div class="modal fade" id="modal_surat" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="modal_berita" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-750px">
         <!--begin::Modal content-->
@@ -272,7 +272,7 @@
                 '<span id="description_'+(i-1)+'">'+Lorem.prototype.createText(Lorem.prototype.randomInt(10,50),Lorem.TYPE.WORD)+'</span>',
                 '<select class="form-select fs-7 select-costum" id="changeStatus_' + (i-1) + '" onChange="changeStatus(' + (i-1)  + ')"><option value"">--Pilih status--</option><option value="publish">Publish</option><option value="hide">Hide / Draft</option></select>',
                 randomDate(new Date(2020, 5, 1), new Date()),
-                '<a class="badge badge-info h-30px m-1" onclick="edit(' + (i-1)  + ')" href="#" data-bs-toggle="modal" data-bs-target="#modal_surat">Ubah</a> <a class="badge badge-danger h-30px m-1" onclick="hapus(' + (i-1)  + ')" data-id="'+(i-1)+'" href="#">Hapus</a>',
+                '<a class="badge badge-info h-30px m-1" onclick="edit(' + (i-1)  + ')" href="#" data-bs-toggle="modal" data-bs-target="#modal_berita">Ubah</a> <a class="badge badge-danger h-30px m-1" onclick="hapus(' + (i-1)  + ')" data-id="'+(i-1)+'" href="#">Hapus</a>',
             ]);
         };
         return dataSetPop;
@@ -301,7 +301,7 @@
         $(i.querySelector('[name="status"]')).val($('#changeStatus_' +index).val()).trigger('change');
         $(i.querySelector('[name="dataID"]')).val(index);
     }
-    var newFaq = function () {
+    var newData = function () {
         let i = document.querySelector("#form");
         $(i.querySelector('[name="title"]')).val('');
         $(i.querySelector('[name="description"]')).val('');
@@ -364,23 +364,15 @@
             showConfirmButton: false
         })
     };
-    var faqInit = function () {
+    var beritaInit = function () {
         var t, e, n, i, o, a;
         return {
             init: function () {
-                (a = document.querySelector("#modal_surat")) && (o = new bootstrap.Modal(a),
+                (a = document.querySelector("#modal_berita")) && (o = new bootstrap.Modal(a),
                     i = document.querySelector("#form"),
                     t = document.getElementById("button_submit"),
-                    e = document.getElementById("button_cancel"), new Dropzone("#surat_attachments", {
-                        url: "https://keenthemes.com/scripts/void.php",
-                        paramName: "file",
-                        maxFiles: 10,
-                        maxFilesize: 10,
-                        addRemoveLinks: !0,
-                        accept: function (t, e) {
-                            "justinbieber.jpg" == t.name ? e("Naha, you don't.") : e()
-                        }
-                    }), $(i.querySelector('[name="title"]')).on("change", (function () {
+                    e = document.getElementById("button_cancel"), 
+                    $(i.querySelector('[name="title"]')).on("change", (function () {
                         n.revalidateField("title")
                     })), $(i.querySelector('[name="description"]')).on("change", (function () {
                         n.revalidateField("description")
@@ -488,7 +480,7 @@
             }
         }
     }();
-    faqInit.init()
+    beritaInit.init()
 </script>
 
 </html>
