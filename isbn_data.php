@@ -405,7 +405,7 @@
 		}		
 	};
 	
-	const dataSet = populateDataSet(getRandom(500,1000));
+	const dataSet = populateDataSet(getRandom(500,2000));
 	var t;
 	var loadDataTable = function(){
 		t = new DataTable('#example', {
