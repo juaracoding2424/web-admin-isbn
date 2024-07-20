@@ -269,7 +269,7 @@
 	var randomPenyerahan = function(){
 		const penyerahan = getRandom(0,2);
 		if(penyerahan == 0){
-			return '<a class="badge badge-danger wrap" href="https://edeposit.perpusnas.go.id/login" target="_blank">Serahkan ke Perpusnas</a>';
+			return '<a class="badge badge-danger wrap" href="https://edeposit.perpusnas.go.id/login" target="_blank">Belum diserahkan</a>';
 		} else {
 			return randomDate(new Date(2024, 5, 1), new Date())
 		}
@@ -277,7 +277,7 @@
 	var randomPenyerahanProv = function(){
 		const penyerahan = getRandom(0,2);
 		if(penyerahan == 0){
-			return '<a class="badge badge-danger wrap" href="https://edeposit.perpusnas.go.id/login" target="_blank">Serahkan ke Provinsi</a>';
+			return '<a class="badge badge-danger wrap" href="https://edeposit.perpusnas.go.id/login" target="_blank">Belum diserahkan</a>';
 		} else {
 			return randomDate(new Date(2024, 5, 1), new Date())
 		}
