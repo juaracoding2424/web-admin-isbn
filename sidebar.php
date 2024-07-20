@@ -99,6 +99,11 @@
                         </a>
                     </div>
                     <div class="menu-item">
+                        <a class="menu-link" href="web_berita.php">
+                            <span class="menu-icon"><i class="ki-outline  ki-questionnaire-tablet fs-2"></i></span> Berita / Pengumuman
+                        </a>
+                    </div>
+                    <div class="menu-item">
                         <a class="menu-link" href="web_surat.php">
                             <span class="menu-icon"><i class="ki-outline ki-file-deleted fs-2"></i></span> Surat
                         </a>
