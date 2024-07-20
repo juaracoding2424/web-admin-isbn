@@ -194,7 +194,7 @@
 									<!--end::Title-->
 									<!--begin::Toolbar-->
 									<div class="card-toolbar">
-										<a href="berita.php" class="btn btn-sm btn-primary">Lihat</a>
+										<a href="web_berita.php" class="btn btn-sm btn-primary">Lihat</a>
 									</div>
 									<!--end::Toolbar-->
 								</div>
