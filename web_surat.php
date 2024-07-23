@@ -224,8 +224,7 @@
                                 <!--end::Icon-->
                                 <!--begin::Info-->
                                 <div class="ms-4">
-                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Masukan attachment</h3>
-                                    <span class="fw-semibold fs-7 text-gray-500">Upload up to 10 files</span>
+                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Masukan attachment surat</h3>
                                 </div>
                                 <!--end::Info-->
                             </div>
@@ -408,7 +407,7 @@
             showConfirmButton: false
         })
     };
-    var faqInit = function () {
+    var suratInit = function () {
         var t, e, n, i, o, a;
         return {
             init: function () {
@@ -418,7 +417,7 @@
                     e = document.getElementById("button_cancel"), new Dropzone("#surat_attachments", {
                         url: "https://keenthemes.com/scripts/void.php",
                         paramName: "file",
-                        maxFiles: 10,
+                        maxFiles: 1,
                         maxFilesize: 10,
                         addRemoveLinks: !0,
                         accept: function (t, e) {
@@ -532,7 +531,7 @@
             }
         }
     }();
-    faqInit.init()
+    suratInit.init()
 </script>
 
 </html>
