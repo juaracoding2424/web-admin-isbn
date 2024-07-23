@@ -52,6 +52,11 @@
                 </div>
                 <!--end:Menu sub-->
             </div>
+            <div class="menu-item">
+                <a class="menu-link" href="bip.php">
+                    <span class="menu-icon"><i class="ki-outline ki-book-square fs-2"></i></span> Book In Print
+                </a>
+            </div>
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                 <!--begin:Menu link-->
                 <span class="menu-link">
