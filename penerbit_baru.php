@@ -247,7 +247,7 @@
                 email,
                 '<a class="badge badge-primary h-30px m-1" onClick="lihatPernyataan('+(i-1)+')">Surat Pernyataan</a> <a class="badge badge-info h-30px m-1" onClick="lihatSiup('+(i-1)+')">SIUP</a>',
 				randomDate(new Date(2024, 5, 1), new Date()),
-				'<a class="badge badge-info h-30px m-1" href="tambah_isbn.php">Verifikasi</a>',
+				'<a class="badge badge-info h-30px m-1" href="penerbit_verifikasi.php">Verifikasi</a>',
 			]);
 		}
 		return dataSetPop;

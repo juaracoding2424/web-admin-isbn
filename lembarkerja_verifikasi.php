@@ -398,6 +398,7 @@
 														</div>
 													</div>
 													<!--end::Input group-->
+													<!--begin::Input group-->
 													<div class="row mb-8">
 														<!--begin::Col-->
 														<div class="col-xl-3">
