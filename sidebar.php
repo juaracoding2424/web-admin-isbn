@@ -16,7 +16,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link" href="lembarkerja_verifikasi.php">
-                    <span class="menu-icon"><i class="ki-outline ki-abstract-36 fs-2 text-primary"></i></span> Verifikasi ISBN
+                    <span class="menu-icon"><i class="ki-outline ki-abstract-36 fs-2 text-primary"></i></span> Verifikasi ISBN  <span class="badge badge-light-info badge-circle fw-bold fs-7 ms-2">67</span>
                 </a>
             </div>
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -58,7 +58,7 @@
                     <span class="menu-icon">
                         <i class="ki-outline ki-people fs-2"></i>
                     </span>
-                    <span class="menu-title">Monitoring Penerbit</span>
+                    <span class="menu-title">Monitoring Penerbit  <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span></span>
                     <span class="menu-arrow"></span>
                 </span>
                 <!--end:Menu link-->
@@ -67,7 +67,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <a class="menu-link" href="penerbit_baru.php">
-                            <span class="menu-icon"><i class="ki-outline ki-plus-circle fs-2"></i></span> Permohonan
+                            <span class="menu-icon"><i class="ki-outline ki-plus-circle fs-2"></i></span> Permohonan <span class="badge badge-light-danger badge-circle fw-bold fs-7 ms-2">3</span>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -148,6 +148,11 @@
                     <!--end:Menu item-->
                 </div>
                 <!--end:Menu sub-->
+            </div>
+            <div class="menu-item">
+                <a class="menu-link" href="support.php">
+                    <span class="menu-icon"><i class="ki-outline ki-chart fs-2"></i></span> Support <span class="badge badge-light-danger badge-circle fw-bold fs-7 ms-2">4</span>
+                </a>
             </div>
         </div>
         <!--end::Secondary menu-->
