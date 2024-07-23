@@ -14,6 +14,11 @@
                     <span class="menu-icon"><i class="ki-outline ki-element-11 fs-2"></i></span> Home
                 </a>
             </div>
+            <div class="menu-item">
+                <a class="menu-link" href="lembarkerja_verifikasi.php">
+                    <span class="menu-icon"><i class="ki-outline ki-abstract-36 fs-2 text-primary"></i></span> Verifikasi ISBN
+                </a>
+            </div>
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                 <!--begin:Menu link-->
                 <span class="menu-link">

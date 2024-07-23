@@ -26,7 +26,7 @@
 						<div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
 							<!--begin::Title-->
 							<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">
-								Permohonan Baru</h1>
+								Permohonan ISBN Hari Ini</h1>
 							<!--end::Title-->
 							<!--begin::Breadcrumb-->
 							<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
@@ -41,7 +41,7 @@
 								</li>
 								<!--end::Item-->
 								<!--begin::Item-->
-								<li class="breadcrumb-item text-muted">Data ISBN</li>
+								<li class="breadcrumb-item text-muted">ISBN</li>
 								<!--end::Item-->
 								<!--begin::Item-->
 								<li class="breadcrumb-item">
@@ -49,7 +49,7 @@
 								</li>
 								<!--end::Item-->
 								<!--begin::Item-->
-								<li class="breadcrumb-item text-muted">Permohonan BARU</li>
+								<li class="breadcrumb-item text-muted">Permohonan Baru</li>
 								<!--end::Item-->
 							</ul>
 							<!--end::Breadcrumb-->
@@ -72,7 +72,7 @@
 								<div class="d-flex align-items-center position-relative my-1">
 									<i class="ki-outline ki-magnifier fs-3 position-absolute ms-4"></i>
 									<input type="text" data-example-filter="search" class="form-control form-control-solid w-400px ps-12" 
-									placeholder="Search Judul, ISBN, Pengarang, etc" />
+									placeholder="Search Nomor Resi, Judul, ISBN, Pengarang, etc" />
 								</div>
 												<!--end::Search-->
 							</div>
@@ -86,12 +86,13 @@
 							<table class="table table-row-dashed table-hover no-wrap fs-8 gy-5" id="example" style="width:100%">
 								<thead>
 									<tr class="text-start text-gray-500 fw-bold fs-8 text-uppercase gs-0">
-										<th class="text-start min-w-60px pe-2">ID</th>
+										<th class="text-start min-w-60px pe-2">Nomor Antrian</th>
+										<th class="min-w-120px">Nomor Resi</th>
 										<th class="min-w-200px">Judul</th>
 										<th class="min-w-200px">Kepengarangan</th>
+										<th class="min-w-200px">Penerbit</th>
 										<th class="min-w-175px">Bulan/Tahun Terbit</th>
-										<th class="min-w-175px">Tanggal Permohonan</th>
-										<th class="text-inline min-w-250px">Actions</th>										
+										<th class="min-w-175px">Tanggal Permohonan</th>								
 									</tr>
 								</thead>
 
@@ -172,74 +173,25 @@
 <script src="assets/js/custom/utilities/modals/users-search.js"></script>-->
 <script src="assets/js/custom/randomtitle.js"></script>
 <script src="assets/js/custom/randomname.js"></script>
+<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 <!--end::Custom Javascript-->
 <!--end::Javascript-->
 </body>
 <!--end::Body-->
-<script>
-	var generateISBN13 = function() {
-		// Generate the first 9 digits of the ISBN randomly.
-		var digits = Array(9).fill(0).map(function () {
-			return Math.floor(Math.random() * 10);
-		});
-
-		// Calculate the checksum for the ISBN.
-		var checksum = 0;
-		for (var i = 0; i < 9; i++) {
-			checksum += digits[i] * (10 - i);
+<script type="module">
+  	import { faker } from 'https://esm.sh/@faker-js/faker';
+	var generateRandomString = (length) => {
+		let result = '';
+		const characters =
+			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		const charactersLength = characters.length;
+		for (let i = 0; i < length; i++) {
+			result += characters.charAt(Math.floor(Math.random() * charactersLength));
 		}
-		checksum = 10 - (checksum % 10);
-
-		// Add the checksum to the end of the digits array.
-		digits.push(checksum);
-
-		// Return the ISBN as a string.
-		return digits.join("");
+		return result.toUpperCase();
 	};
 	var extractColumn = function(arr, column) {
 		return arr.map(x => x[column]);
-	}
-	var batalkanPermohonan = function(i){
-		let arrNomor = extractColumn(dataSet, 0);
-		let position = arrNomor.indexOf((i+1).toString());
-		r = dataSet[position][1];
-		Swal.fire({
-                    html: "Anda yakin akan membatalkan permohonan ISBN, dengan <b>judul</b>: <span class='badge badge-info'> "+r+" </span>?",
-					icon: "warning",
-                    showCancelButton: !0,
-                    buttonsStyling: !1,
-                    confirmButtonText: "Ya, batalkan!",
-                    cancelButtonText: "Tidak",
-                    customClass: {
-                        confirmButton: "btn fw-bold btn-danger",
-                        cancelButton: "btn fw-bold btn-active-light-primary"
-                    }
-            }).then(function(e) {
-						if(e.isConfirmed == true) {
-							Swal.fire({
-								html: "Anda membatalkan permohonan ISBN, dengan <b>judul</b>: <span class='badge badge-info'>" + r + "</span>!.",
-								icon: "success",
-								buttonsStyling: !1,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn fw-bold btn-primary"
-								}
-							})
-							dataSet.splice(position,1);
-							t.destroy();
-							loadDataTable();
-						} else {
-							Swal.fire({
-								html: "<span class='badge badge-info'>" + r + "</span> tidak jadi dibatalkan.",
-								icon: "error",
-								buttonsStyling: !1,
-								confirmButtonText: "Ok, got it!",
-								customClass: {
-									confirmButton: "btn fw-bold btn-primary"
-								}
-                        	});
-						}
-            });
 	}
 	var getRandom = function (min, max) {
 		return Math.floor(Math.random() * (max - min) + min);
@@ -259,22 +211,30 @@
 		}
 		return pengarang.slice(0, -2);
 	}
+	var status = [
+		'<span class="badge badge-light-success fs-9">Baru</span>',
+		'<span class="badge badge-light-info fs-9">Sedang diverifikasi oleh Ranita</span>',
+		'<span class="badge badge-light-info fs-9">Sedang diverifikasi oleh Mulyadi</span>',
+		'<span class="badge badge-light-info fs-9">Sedang diverifikasi oleh Dimas</span>',
+		'<span class="badge badge-light-primary fs-9">Selesai</span>',
+	];
 	var populateDataSet = function(numb){
 		var dataSetPop = [];
 		for( var i = 1; i<=numb; i++ ){
 			dataSetPop.push([
 				i.toString(),
-				RandomTitle(),
+				generateRandomString(10),
+				RandomTitle() + status[getRandom(0,5)],
 				populateKepengarangan(),
+				faker.company.name(),
 				Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(6,12).toString())) + " " + getRandom(2024,2025).toString(),
-				randomDate(new Date(2024, 5, 1), new Date()),
-				'<a class="badge badge-info h-30px m-1" href="tambah_isbn.php">Verifikasi</a>',
+				randomDate(new Date(2024, 5, 1), new Date())
 			]);
 		}
 		return dataSetPop;
 	};
 	
-	const dataSet = populateDataSet(getRandom(1,15)); var t;
+	const dataSet = populateDataSet(getRandom(7,50)); var t;
 	var loadDataTable = function(){
 		t = new DataTable('#example', {
 			data: dataSet,
