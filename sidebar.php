@@ -58,7 +58,7 @@
                     <span class="menu-icon">
                         <i class="ki-outline ki-people fs-2"></i>
                     </span>
-                    <span class="menu-title">Monitoring Penerbit  <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span></span>
+                    <span class="menu-title">Monitoring Penerbit  <span class="badge badge-light-danger badge-circle fw-bold fs-7 ms-2">3</span></span>
                     <span class="menu-arrow"></span>
                 </span>
                 <!--end:Menu link-->

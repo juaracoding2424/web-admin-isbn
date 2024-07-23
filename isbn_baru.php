@@ -86,11 +86,11 @@
 							<table class="table table-row-dashed table-hover no-wrap fs-8 gy-5" id="example" style="width:100%">
 								<thead>
 									<tr class="text-start text-gray-500 fw-bold fs-8 text-uppercase gs-0">
-										<th class="text-start min-w-60px pe-2">Nomor Antrian</th>
 										<th class="min-w-120px">Nomor Resi</th>
 										<th class="min-w-200px">Judul</th>
 										<th class="min-w-200px">Kepengarangan</th>
 										<th class="min-w-200px">Penerbit</th>
+										<th class="min-w-120px">No.Antrian</th>
 										<th class="min-w-175px">Bulan/Tahun Terbit</th>
 										<th class="min-w-175px">Tanggal Permohonan</th>								
 									</tr>
@@ -222,11 +222,11 @@
 		var dataSetPop = [];
 		for( var i = 1; i<=numb; i++ ){
 			dataSetPop.push([
-				i.toString(),
 				generateRandomString(10),
 				RandomTitle() + status[getRandom(0,5)],
 				populateKepengarangan(),
 				faker.company.name(),
+				i.toString(),
 				Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(6,12).toString())) + " " + getRandom(2024,2025).toString(),
 				randomDate(new Date(2024, 5, 1), new Date())
 			]);
