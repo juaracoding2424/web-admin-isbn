@@ -294,7 +294,7 @@
                 '<span id="description_'+(i-1)+'">' + Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(6,12).toString())) + " " + getRandom(2024,2025).toString() + '</span>',
                 '<a id="attachment_'+(i-1)+'" href=""> BIP '+ i.toString() + '.pdf </span>',
                 '<select class="form-select fs-7 select-costum" id="changeStatus_' + (i-1) + '" onChange="changeStatus(' + (i-1)  + ')"><option value"">--Pilih status--</option><option value="publish">Publish</option><option value="hide">Hide / Draft</option></select>',
-                '<a class="badge badge-info h-30px m-1" onclick="edit(' + (i-1)  + ')" href="#" data-bs-toggle="modal" data-bs-target="#modal_surat">Ubah</a> <a class="badge badge-danger h-30px m-1" onclick="hapus(' + (i-1)  + ')" data-id="'+(i-1)+'" href="#">Hapus</a>',
+                '<a class="badge badge-info h-30px m-1" onclick="edit(' + (i-1)  + ')" href="#" data-bs-toggle="modal" data-bs-target="#modal_surat">Ubah</a> <a class="badge badge-primary h-30px m-1" onclick="generate(' + (i-1)  + ')" href="#">Generate BIP</a> <a class="badge badge-danger h-30px m-1" onclick="hapus(' + (i-1)  + ')" data-id="'+(i-1)+'" href="#">Hapus</a>',
             ]);
             i += 1;
         };
@@ -380,6 +380,21 @@
         //
         Swal.fire({
             html: "Berhasil mengubah status dokumen menjadi " + val,
+            icon: "success",
+            timer: 1000,
+            customClass: {
+                confirmButton: "btn fw-bold btn-primary"
+            },
+            showCancelButton: false,
+            showConfirmButton: false
+        })
+    };
+    var generate = function (id) {
+        // 
+        // AJAX change status FAQ disini
+        //
+        Swal.fire({
+            html: "Berhasil melakukan generate dokumen BIP "+ $('#dataID_' + id).text(),
             icon: "success",
             timer: 1000,
             customClass: {
