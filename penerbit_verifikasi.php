@@ -211,8 +211,8 @@
 													<div class="row mb-8">
 														<!--begin::Col-->
 														<div class="col-xl-3">
-															<div class="fs-6 fw-semibold mt-2 mb-3"><span class="required">Verifikasi Permohonan ISBN </span>
-																<span class="ms-1" data-bs-toggle="tooltip" title="Pilih status verifikasi ISBN">
+															<div class="fs-6 fw-semibold mt-2 mb-3"><span class="required">Verifikasi Akun Penerbit </span>
+																<span class="ms-1" data-bs-toggle="tooltip" title="Pilih status verifikasi akun penerbit">
 																<i class="ki-outline ki-information-5 text-gray-500 fs-6"></i>
 															</span></div>
 														</div>
