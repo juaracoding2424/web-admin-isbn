@@ -253,7 +253,7 @@
 		return dataSetPop;
 	};
 	
-	const dataSet = populateDataSet(getRandom(1,15)); var t;
+	const dataSet = populateDataSet(5); var t;
 	var loadDataTable = function(){
 		t = new DataTable('#example', {
 			data: dataSet,

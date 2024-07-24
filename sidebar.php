@@ -63,7 +63,7 @@
                     <span class="menu-icon">
                         <i class="ki-outline ki-people fs-2"></i>
                     </span>
-                    <span class="menu-title">Monitoring Penerbit  <span class="badge badge-light-danger badge-circle fw-bold fs-7 ms-2">3</span></span>
+                    <span class="menu-title">Monitoring Penerbit  <span class="badge badge-light-danger badge-circle fw-bold fs-7 ms-2">5</span></span>
                     <span class="menu-arrow"></span>
                 </span>
                 <!--end:Menu link-->
@@ -72,7 +72,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <a class="menu-link" href="penerbit_baru.php">
-                            <span class="menu-icon"><i class="ki-outline ki-plus-circle fs-2"></i></span> Permohonan <span class="badge badge-light-danger badge-circle fw-bold fs-7 ms-2">3</span>
+                            <span class="menu-icon"><i class="ki-outline ki-plus-circle fs-2"></i></span> Permohonan <span class="badge badge-light-danger badge-circle fw-bold fs-7 ms-2">5</span>
                         </a>
                     </div>
                     <div class="menu-item">
