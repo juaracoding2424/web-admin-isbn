@@ -1,4 +1,26 @@
 <?php include 'header.php';?>
+<link href="assets/css/pdfjs-viewer.min.css" rel="stylesheet" type="text/css" />
+<style>
+        .pdfjs-toolbar, .pdfjs-toolbar i {
+            font-size: 14px;
+        }
+        .pdfjs-toolbar span {
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+            width: 4em !important;
+            font-size: 12px;
+        }
+        .pdfjs-toolbar .btn-sm {
+            padding: 0.12rem 0.25rem;
+
+        }
+        .pdfjs-toolbar {
+            width: 100%;
+            height: auto;
+            background: #ddd;
+            z-index: 100;
+        }
+    </style>
 <!--begin::Wrapper-->
 <div class="app-wrapper d-flex" id="kt_app_wrapper">
 	<!--begin::Sidebar-->
@@ -110,6 +132,18 @@
 													<!--begin::Input group-->
 													<div class="row mb-6">
 														<!--begin::Label-->
+														<label class="col-lg-3 col-form-label required fw-semibold fs-6">Alamat Kantor</label>
+														<!--end::Label-->
+														<!--begin::Col-->
+														<div class="col-lg-9">
+															<input type="text" name="title" class="form-control form-control-lg form-control-solid" placeholder="Alamat Kantor" value="Jln. Jakarta Raya Gedung E, Blok C3 No 2" />
+														</div>
+														<!--end::Col-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Input group-->
+													<div class="row mb-6">
+														<!--begin::Label-->
 														<label class="col-lg-3 col-form-label fw-semibold fs-6">
 															<span class="required">Provinsi</span>
 															<span class="ms-1" data-bs-toggle="tooltip" title="Provinsi">
@@ -190,19 +224,19 @@
 														<!--begin::Label-->
 														<!--begin::Label-->
 														<div class="col-lg-9 d-flex align-items-center">
-															
+															<span><i class="bi bi-filetype-pdf fs-1"></i><span>
 														</div>
 														<!--begin::Label-->
 													</div>
 													<!--end::Input group-->
 													<!--begin::Input group-->
-													<div class="row mb-0">
+													<div class="row mb-6">
 														<!--begin::Label-->
 														<label class="col-lg-3 col-form-label fw-semibold fs-6">Surat Pernyataan</label>
 														<!--begin::Label-->
 														<!--begin::Label-->
 														<div class="col-lg-9 d-flex align-items-center">
-															
+															<span><i class="bi bi-filetype-pdf fs-1"></i></span>
 														</div>
 														<!--begin::Label-->
 													</div>
@@ -353,6 +387,9 @@
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+		<script src="assets/js/pdfjs-viewer.js"></script>
+		
 		<!--end::Custom Javascript-->
 <!--begin::Custom Javascript(used for this page only)-->
 <script src="assets/js/widgets.bundle.js"></script>
@@ -362,6 +399,10 @@
 </body>
 <!--end::Body-->
 <script>
+		// initialize the PDFjs library
+		var pdfjsLib = window['pdfjs-dist/build/pdf'];
+		pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+		var pdfViewer;
 		var urlProvinsi = "https://ibnux.github.io/data-indonesia/provinsi.json";
 		var urlKabupaten = "https://ibnux.github.io/data-indonesia/kabupaten/";
 		var urlKecamatan = "https://ibnux.github.io/data-indonesia/kecamatan/";
