@@ -181,10 +181,10 @@
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
-                        <h1 class="mb-3">Buat Berita / Pengumuman</h1>
+                        <h1 class="mb-3">Template Email</h1>
                         <!--end::Title-->
                         <!--begin::Description-->
-                        <div class="text-gray-500 fw-semibold fs-5">Daftar berita / pengumuman yang akan ditampilkan pada halaman web ISBN</div>
+                        <div class="text-gray-500 fw-semibold fs-5">Template Email untuk mengirimkan notifikasi pada user aplikasi ISBN</div>
                         <!--end::Description-->
                     </div>
                     <!--end::Heading-->
@@ -192,7 +192,7 @@
                     <div class="d-flex flex-column mb-8 fv-row">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Judul Berita / Pengumuman</span>
+                            <span class="required">Subyek Email</span>
                             <span class="ms-2" data-bs-toggle="tooltip" title="Tuliskan judul berita/pengumuman">
                                 <i class="ki-outline ki-information fs-7"></i>
                             </span>
@@ -204,7 +204,7 @@
                     <!--end::Input group-->
                     <!--begin::Input group-->
                     <div class="d-flex flex-column mb-8 fv-row">
-                        <label class="fs-6 fw-semibold mb-2">Deskripsi</label>
+                        <label class="fs-6 fw-semibold mb-2">Isi Email</label>
                         <textarea class="form-control form-control-solid" rows="4" name="description"
                             placeholder="Masukan deskripsi singkat dokumen"></textarea>
                     </div>
