@@ -72,6 +72,19 @@
 										<div id="kt_account_settings_profile_details" class="collapse show">
 											<!--begin::Form-->
 											<form id="kt_account_profile_details_form" class="form">
+												<div class="card-header">
+                                                    <div class="d-flex align-items-center p-5 mb-10">
+                                                        <i class="ki-solid ki-shield-cross fs-4hx text-danger me-4"><span
+                                                                class="path1"></span><span class="path2"></span></i>
+                                                        <div class="rounded border p-10  d-flex flex-column">
+                                                            <div class="d-flex flex-column">
+                                                                <h2 class="mb-1 text-danger">Masalah sebelumnya</h2> <span class="fs-8 text-primary"><i>22 Juli 2024, ditolak oleh Dimas Notonegoro</i></span>
+                                                                <span>Judul tidak sama seperti info dalam halaman judul. Penerbit atau pengarang tidak memenuhi kriteria yang ditetapkan oleh Perpustakaan Nasional RI</span>
+																
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 												<!--begin::Card body-->
 												<div class="card-body border-top p-9">
 													<!--begin::Input group-->
