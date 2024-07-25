@@ -26,7 +26,7 @@
                                 <!--begin::Title-->
                                 <h1
                                     class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">
-                                    Berita / Pengumuman</h1>
+                                    Template Email</h1>
                                 <!--end::Title-->
                                 <!--begin::Breadcrumb-->
                                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
@@ -49,7 +49,7 @@
                                     </li>
                                     <!--end::Item-->
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item text-muted">Berita / Pengumuman</li>
+                                    <li class="breadcrumb-item text-muted">Template Email</li>
                                     <!--end::Item-->
                                 </ul>
                                 <!--end::Breadcrumb-->
@@ -81,7 +81,7 @@
                             <!--begin::Card toolbar-->
                             <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal_berita"
-                                    class="btn btn-primary fw-bold fs-8 fs-lg-base" onclick="newData()">Buat Berita / Pengumuman</a>
+                                    class="btn btn-primary fw-bold fs-8 fs-lg-base" onclick="newData()">Ubah Template Email Notifikasi</a>
                             </div>
                             <!--end::Card toolbar-->
                         </div>
@@ -96,10 +96,9 @@
                                     <thead>
                                         <tr class="text-start text-gray-500 fw-bold fs-8 text-uppercase gs-0">
                                             <th class="text-start min-w-60px pe-2">ID</th>
-                                            <th class="min-w-225px">Judul</th>
-                                            <th class="min-w-300px">Deskripsi</th>
-                                            <th class="min-w-200px">Status</th>
-                                            <th class="min-w-200px">Tanggal</th>
+                                            <th class="min-w-225px">Subyek</th>
+                                            <th class="min-w-300px">Isi Email</th>
+                                            <th class="min-w-200px">Terakhir Ubah</th>
                                             <th class="text-inline min-w-250px">Aksi</th>
                                         </tr>
                                     </thead>
@@ -270,7 +269,6 @@
                 '<span id="dataID_'+(i-1)+'">' + (i).toString() +'</span>',
                 '<span id="title_'+(i-1)+'">'+Lorem.prototype.createText(Lorem.prototype.randomInt(5,10),Lorem.TYPE.WORD)+'</span>',
                 '<span id="description_'+(i-1)+'">'+Lorem.prototype.createText(Lorem.prototype.randomInt(10,50),Lorem.TYPE.WORD)+'</span>',
-                '<select class="form-select fs-7 select-costum" id="changeStatus_' + (i-1) + '" onChange="changeStatus(' + (i-1)  + ')"><option value"">--Pilih status--</option><option value="publish">Publish</option><option value="hide">Hide / Draft</option></select>',
                 randomDate(new Date(2020, 5, 1), new Date()),
                 '<a class="badge badge-info h-30px m-1" onclick="edit(' + (i-1)  + ')" href="#" data-bs-toggle="modal" data-bs-target="#modal_berita">Ubah</a> <a class="badge badge-danger h-30px m-1" onclick="hapus(' + (i-1)  + ')" data-id="'+(i-1)+'" href="#">Hapus</a>',
             ]);
