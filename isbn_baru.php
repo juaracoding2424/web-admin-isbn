@@ -92,6 +92,7 @@
 										<th class="min-w-200px">Penerbit</th>
 										<th class="min-w-120px">No.Antrian</th>
 										<th class="min-w-175px">Bulan/Tahun Terbit</th>
+										<th class="min-w-100px">Sumber</th>
 										<th class="min-w-175px">Tanggal Permohonan</th>								
 									</tr>
 								</thead>
@@ -218,6 +219,10 @@
 		'<span class="badge badge-light-info fs-9">Sedang diverifikasi oleh Dimas</span>',
 		'<span class="badge badge-light-primary fs-9">Selesai</span>',
 	];
+	var sumber = [
+		'<span class="badge badge-success">Web</span>', 
+		'<span class="badge badge-info">API</span>', 
+	];
 	var populateDataSet = function(numb){
 		var dataSetPop = [];
 		for( var i = 1; i<=numb; i++ ){
@@ -228,6 +233,7 @@
 				faker.company.name(),
 				i.toString(),
 				Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(6,12).toString())) + " " + getRandom(2024,2025).toString(),
+				sumber[getRandom(0,2)],
 				randomDate(new Date(2024, 5, 1), new Date())
 			]);
 		}
