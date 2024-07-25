@@ -362,9 +362,11 @@
 													<div class="row mb-6">
 														<!--begin::Label-->
 														<label class="col-lg-3 col-form-label fw-semibold fs-6">Dummy Buku yang akan terbit</label>
+                                                        <div class="col-lg-3 col-form-label ">
+															<a><i class="bi bi-filetype-pdf fs-1"></i> DummyBuku.pdf</a>
+														</div>
 														<!--end:: Label-->
-														<div class="col-lg-9 d-flex align-items-center">
-														<div class="col-lg-9 d-flex align-items-center">
+														<div class="col-lg-6 d-flex align-items-center">
 															<!--begin::Dropzone-->
 															<div class="dropzone" id="dummy" >
 																<!--begin::Message-->
@@ -382,7 +384,6 @@
 															</div>
 															<!--end::Dropzone-->
 														</div>
-														</div>
 														<!--begin::Label-->
 													</div>
 													<!--end::Input group-->
@@ -390,8 +391,12 @@
 													<div class="row mb-6">
 														<!--begin::Label-->
 														<label class="col-lg-3 col-form-label fw-semibold fs-6">File Attachment</label>
+                                                        <div class="col-lg-3 col-form-label ">
+															<a><i class="bi bi-filetype-pdf fs-1"></i> SuratPernyataan.pdf</a> <br/>
+                                                            <a><i class="bi bi-filetype-pdf fs-1"></i> SuratKeaslianKarya.pdf</a>
+														</div>
 														<!--end:: Label-->
-														<div class="col-lg-9 d-flex align-items-center">
+														<div class="col-lg-6 d-flex align-items-center">
 															<!--begin::Dropzone-->
 															<div class="dropzone" id="attachments" style="width:100%">
 																<!--begin::Message-->
