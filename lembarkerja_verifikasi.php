@@ -328,6 +328,28 @@
 													<!--begin::Input group-->
 													<div class="row mb-6">
 														<!--begin::Label-->
+														<label class="col-lg-3 col-form-label required fw-semibold fs-6">Jumlah Halaman</label>
+														<!--end::Label-->
+														<!--begin::Col-->
+														<div class="col-lg-2 fv-row">
+															<input type="text" name="jml_hlm" class="form-control form-control-lg form-control-solid" placeholder="Jumlah Halaman" value="148" />
+														</div>
+                                            			<label class="col-lg-1 col-form-label fw-semibold fs-6">halaman</label>
+														<!--end::Col-->
+														<!--begin::Label-->
+														<label class="col-lg-3 col-form-label fw-semibold fs-6">Tinggi Buku</label>
+														<!--end::Label-->
+                                                        <!--begin::Col-->
+														<div class="col-lg-2 fv-row">
+															<input type="text" name="dimensi" class="form-control form-control-lg form-control-solid" placeholder="tinggi buku" value="22" />
+														</div>
+														<!--end::Col-->
+                                                        <label class="col-lg-1 col-form-label fw-semibold fs-6">cm</label>
+													</div>
+													<!--end::Input group-->
+													<!--begin::Input group-->
+													<div class="row mb-6">
+														<!--begin::Label-->
 														<label class="col-lg-3 col-form-label required fw-semibold fs-6">Kategori</label>
 														<!--end::Label-->
 														<!--begin::Col-->
