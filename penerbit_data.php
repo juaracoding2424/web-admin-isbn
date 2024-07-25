@@ -218,7 +218,7 @@
 				name,
 				email,
 				Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(1,12).toString())) + " " + getRandom(2022,2024).toString(),
-				'<select class="form-select fs-7 select-costum" id="changeStatus_'+(i-1)+'" onChange="changeStatus('+(i-1)+')"><option value"">--Pilih status--</option><option value="aktif">Aktif</option><option value="blokir">Disable</option><option value="blokir">Blokir</option></select>', 
+				'<select class="form-select fs-7 select-costum" id="changeStatus_'+(i-1)+'" onChange="changeStatus('+(i-1)+')"><option value"">--Pilih status--</option><option value="aktif">Aktif</option><option value="disable">Disable</option><option value="blokir">Blokir</option></select>', 
 				'<a class="badge badge-info h-30px m-1" onclick="lihatPernyataan()">Surat Pernyataan</a><a class="badge badge-primary h-30px m-1" onClick="lihatSiup()">SIUP</a>'
 			]);
 		}
@@ -229,13 +229,13 @@
 	}
 
 	var changeStatus = function(selectId){
-		if($('#changeStatus_' + selectId).val() == 'batal'){
+		if($('#changeStatus_' + selectId).val() == 'blokir'){
 			let arrNomor = extractColumn(dataSet, 0);
 			let position = arrNomor.indexOf((selectId+1).toString());
-			r = dataSet[position][2];
+			r = dataSet[position][1];
 			r = r.replace("d-flex ", "");
 			Swal.fire({
-                    html: "Anda yakin akan membatalkan ISBN berikut? "+r,
+                    html: "Anda yakin akan memblokir penerbit berikut? "+r,
 					icon: "warning",
                     showCancelButton: !0,
                     buttonsStyling: !1,
@@ -248,27 +248,27 @@
 				}).then(function(e){
 					if(e.isConfirmed == true) {
 						Swal.fire({
-							title: 'Konfirmasi alasan pembatalan',
-							html: '<textarea id="alasan" cols="40" class="swal2-input" placeholder="Masukan alasan pembatalan ISBN" style="height:150px"></textarea>',
+							title: 'Konfirmasi alasan pemblokiran',
+							html: '<textarea id="alasan" cols="40" class="swal2-input" placeholder="Masukan alasan pemblokiran akun" style="height:150px"></textarea>',
 							width:600,
 							showCancelButton: true,
 							confirmButtonColor: '#DD6B55',
-							confirmButtonText: 'Simpan Alasan Pembatalan ISBN',
+							confirmButtonText: 'Simpan Alasan Blokir',
 							preConfirm: () => {
 								const alasan = $('#alasan').val();
 								if (alasan.length < 150) {
-									Swal.showValidationMessage('Alasan pembatalan ISBN harus lebih dari 150 karakter!');
+									Swal.showValidationMessage('Alasan pemblokiran akun harus lebih dari 50 karakter!');
 								}
 								return { alasan }
 							},
 						}).then(
 							function(e){
 								if(e.isConfirmed == true){
-									dataSet[selectId][5] = '<span class="badge badge-danger fs-5" tooltip="true" title="'+$('#alasan').val()+'">ISBN DIBATALKAN</span>';
+									dataSet[selectId][5] = '<span class="badge badge-danger fs-5" tooltip="true" title="'+$('#alasan').val()+'">AKUN DIBLOKIR</span>';
 									t.destroy();
 									loadDataTable();
 									Swal.fire({
-										html: r + " <h1>TELAH DIBATALKAN</h1> <br/> <b>Alasan</b>: <span class='text-grey-400'>" + $('#alasan').val() + "</span>",
+										html: r + " <h1>TELAH DIBLOKIR</h1> <br/> <b>Alasan</b>: <span class='text-grey-400'>" + $('#alasan').val() + "</span>",
 										width: 600,
 										icon: "success",
 										buttonsStyling: !1,
@@ -279,7 +279,7 @@
 									});
 								} else {
 									Swal.fire({
-										html: r + " tidak jadi dibatalkan.",
+										html: r + " tidak jadi diblokir.",
 										icon: "error",
 										buttonsStyling: !1,
 										confirmButtonText: "Ok, got it!",
@@ -292,7 +292,7 @@
 						)
 					} else {
 						Swal.fire({
-                            html: r + " tidak jadi dibatalkan.",
+                            html: r + " tidak jadi diblokir.",
                             icon: "error",
                             buttonsStyling: !1,
                             confirmButtonText: "Ok, got it!",
@@ -304,7 +304,7 @@
 				});
 		} else {
 			Swal.fire({
-				html: "Berhasil mengubah status penerbitan",
+				html: "Berhasil mengubah status akun penerbit",
 				icon: "success",
 				timer: 1000,
 				customClass: {
