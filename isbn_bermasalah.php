@@ -247,7 +247,7 @@
 				Intl.DateTimeFormat('id', { month: 'short' }).format(new Date(getRandom(1,12).toString())) + " " + getRandom(2022,2024).toString(),
 				randomDate(new Date(2023, 0, 1), new Date(2024, 2, 20)),
 				randomMasalah(),
-				'<a class="badge badge-primary h-30px m-1" onClick="lihatPermohonan('+(i-1)+')">Lihat</a>',
+				'<a class="badge badge-primary h-30px m-1" href="lembarkerja_verifikasi.php"">Lihat</a>',
 			]);
 		}
 		return dataSetPop;
